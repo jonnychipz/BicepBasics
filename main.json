@@ -2,12 +2,22 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "functions": [],
-  "resources": [],
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-08-31",
+      "name": "testiothub",
+      "location": "uksouth",
+      "sku": {
+        "name": "B1"
+      }
+    }
+  ],
   "metadata": {
     "_generator": {
       "name": "bicep",
       "version": "0.3.126.58533",
-      "templateHash": "6907018451783229197"
+      "templateHash": "5704265749613091380"
     }
   }
 }
