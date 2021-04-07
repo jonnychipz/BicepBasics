@@ -1,7 +1,13 @@
+param location string = 'uksouth'
+param sku string = 'B1'
+var iothname = 'TestIoTHub'
+
 resource iothub 'Microsoft.Devices/IotHubs@2020-08-31' = {
-  name:'testiothub'
-  location:'uksouth'
+  name: iothname
+  location: location
   sku:{
-    name:'B1'
+    name: sku
   }
 }
+
+output iothubname string = iothub.name

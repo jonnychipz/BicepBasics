@@ -1,23 +1,42 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "uksouth"
+    },
+    "sku": {
+      "type": "string",
+      "defaultValue": "B1"
+    }
+  },
   "functions": [],
+  "variables": {
+    "iothname": "TestIoTHub"
+  },
   "resources": [
     {
       "type": "Microsoft.Devices/IotHubs",
       "apiVersion": "2020-08-31",
-      "name": "testiothub",
-      "location": "uksouth",
+      "name": "[variables('iothname')]",
+      "location": "[parameters('location')]",
       "sku": {
-        "name": "B1"
+        "name": "[parameters('sku')]"
       }
     }
   ],
+  "outputs": {
+    "iothubname": {
+      "type": "string",
+      "value": "[variables('iothname')]"
+    }
+  },
   "metadata": {
     "_generator": {
       "name": "bicep",
       "version": "0.3.126.58533",
-      "templateHash": "5704265749613091380"
+      "templateHash": "6152219320661685498"
     }
   }
 }
